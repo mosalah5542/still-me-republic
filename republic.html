@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Still Me Republic</title>
+
+<style>
+:root {
+  --navy: #0D1B2A;
+  --offwhite: #F2EFE6;
+  --gold: #D4AF37;
+  --gold-soft: #B89545;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--offwhite);
+  color: var(--navy);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.6;
+}
+
+/* NAVIGATION */
+
+nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 10;
+  background: rgba(13, 27, 42, 0.94);
+  border-bottom: 1px solid rgba(212,175,55,0.45);
+  backdrop-filter: blur(10px);
+}
+
+.nav-inner {
+  max-width: 1100px;
+  margin: auto;
+  padding: 16px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.brand {
+  color: var(--offwhite);
+  font-size: 17px;
+  letter-spacing: 3px;
+  text-decoration: none;
+}
+
+.nav-links {
+  display: flex;
+  gap: 24px;
+}
+
+.nav-links a {
+  color: var(--offwhite);
+  text-decoration: none;
+  font-size: 13px;
+  letter-spacing: 1px;
+}
+
+/* HERO */
+
+.hero {
+  min-height: 100vh;
+  background: var(--navy);
+  color: var(--offwhite);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 110px 24px 70px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-content {
+  max-width: 900px;
+}
+
+.republic {
+  color: var(--gold);
+  font-size: 15px;
+  letter-spacing: 6px;
+  margin-bottom: 25px;
+}
+
+.hero h1 {
+  font-size: clamp(58px, 13vw, 150px);
+  letter-spacing: 8px;
+  font-weight: 500;
+  line-height: 0.95;
+}
+
+.infinity {
+  color: var(--gold);
+  font-size: 70px;
+  line-height: 1;
+  margin: 28px 0;
+}
+
+.motto {
+  font-size: clamp(15px, 3vw, 22px);
+  letter-spacing: 2px;
+}
+
+.hero-line {
+  width: 100px;
+  height: 1px;
+  background: var(--gold);
+  margin: 30px auto;
+}
+
+/* SECTIONS */
+
+section {
+  padding: 100px 24px;
+}
+
+.container {
+  max-width: 1000px;
+  margin: auto;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 55px;
+}
+
+.section-title span {
+  display: block;
+  color: var(--gold-soft);
+  font-size: 13px;
+  letter-spacing: 4px;
+  margin-bottom: 12px;
+}
+
+.section-title h2 {
+  font-size: clamp(34px, 7vw, 58px);
+  font-weight: 500;
+}
+
+/* ABOUT */
+
+.about {
+  background: var(--offwhite);
+  text-align: center;
+}
+
+.about-text {
+  max-width: 720px;
+  margin: auto;
+  font-size: 19px;
+}
+
+.about-text strong {
+  color: var(--gold-soft);
+}
+
+/* SYMBOLS */
+
+.symbols {
+  background: var(--navy);
+  color: var(--offwhite);
+}
+
+.symbol-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.symbol {
+  text-align: center;
+  padding: 35px 20px;
+  border: 1px solid rgba(212,175,55,0.35);
+}
+
+.symbol-icon {
+  color: var(--gold);
+  font-size: 55px;
+  margin-bottom: 15px;
+}
+
+.symbol h3 {
+  color: var(--gold);
+  letter-spacing: 2px;
+  margin-bottom: 12px;
+}
+
+.symbol p {
+  font-size: 15px;
+  opacity: 0.85;
+}
+
+/* CITIZENS */
+
+.citizens {
+  background: #e9e5da;
+}
+
+.character-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+}
+
+.character {
+  background: var(--offwhite);
+  border: 1px solid rgba(13,27,42,0.15);
+  padding: 30px 20px;
+  text-align: center;
+}
+
+.character .age {
+  color: var(--gold-soft);
+  font-size: 13px;
+  letter-spacing: 2px;
+}
+
+.character h3 {
+  font-size: 28px;
+  margin: 10px 0;
+}
+
+.character p {
+  font-size: 14px;
+}
+
+/* FLAG */
+
+.flag-section {
+  background: var(--navy);
+  color: var(--offwhite);
+  text-align: center;
+}
+
+.flag {
+  max-width: 760px;
+  height: 320px;
+  margin: 0 auto 45px;
+  display: flex;
+  border: 1px solid var(--gold);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+}
+
+.flag-light {
+  width: 62%;
+  background: var(--offwhite);
+  color: var(--gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 120px;
+}
+
+.flag-dark {
+  width: 38%;
+  background: var(--navy);
+  color: var(--gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 90px;
+}
+
+.flag-text {
+  max-width: 650px;
+  margin: auto;
+  font-size: 18px;
+}
+
+/* FOOTER */
+
+footer {
+  background: #08131f;
+  color: var(--offwhite);
+  text-align: center;
+  padding: 55px 24px;
+}
+
+.footer-infinity {
+  color: var(--gold);
+  font-size: 50px;
+  margin-bottom: 15px;
+}
+
+footer h2 {
+  letter-spacing: 5px;
+  font-weight: 400;
+}
+
+footer p {
+  margin-top: 15px;
+  opacity: 0.7;
+  font-size: 13px;
+  letter-spacing: 1px;
+}
+
+/* MOBILE */
+
+@media (max-width: 700px) {
+
+  .nav-links {
+    display: none;
+  }
+
+  .hero h1 {
+    letter-spacing: 4px;
+  }
+
+  .infinity {
+    font-size: 55px;
+  }
+
+  .symbol-grid,
+  .character-grid {
+    grid-template-columns: 1fr;
+  }
+
+  section {
+    padding: 75px 20px;
+  }
+
+  .flag {
+    height: 190px;
+  }
+
+  .flag-light {
+    font-size: 65px;
+  }
+
+  .flag-dark {
+    font-size: 50px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="#" class="brand">STILL ME</a>
+
+    <div class="nav-links">
+      <a href="#about">ABOUT</a>
+      <a href="#symbols">SYMBOLS</a>
+      <a href="#citizens">CITIZENS</a>
+      <a href="#flag">FLAG</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+
+  <div class="hero-content">
+
+    <div class="republic">
+      STILL ME REPUBLIC
+    </div>
+
+    <h1>STILL ME</h1>
+
+    <div class="infinity">∞</div>
+
+    <div class="hero-line"></div>
+
+    <p class="motto">
+      WE REMEMBER. WE BECOME. WE CREATE.
+    </p>
+
+  </div>
+
+</header>
+
+<section id="about" class="about">
+
+  <div class="container">
+
+    <div class="section-title">
+      <span>THE REPUBLIC</span>
+      <h2>A place for becoming.</h2>
+    </div>
+
+    <div class="about-text">
+
+      <p>
+        Still Me Republic is a symbolic world built around one simple idea:
+        <strong>we are never finished becoming ourselves.</strong>
+      </p>
+
+      <br>
+
+      <p>
+        We remember who we were.
+        We face who we are.
+        And we create who we become.
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+<section id="symbols" class="symbols">
+
+  <div class="container">
+
+    <div class="section-title">
+      <span>THE LANGUAGE</span>
+      <h2>Three symbols.</h2>
+    </div>
+
+    <div class="symbol-grid">
+
+      <div class="symbol">
+        <div class="symbol-icon">∞</div>
+        <h3>INFINITY</h3>
+        <p>
+          The continuous journey of remembering,
+          becoming and creating.
+        </p>
+      </div>
+
+      <div class="symbol">
+        <div class="symbol-icon">✦</div>
+        <h3>THE STAR</h3>
+        <p>
+          Awakening, curiosity and the light
+          that guides the journey.
+        </p>
+      </div>
+
+      <div class="symbol">
+        <div class="symbol-icon">●</div>
+        <h3>THE REPUBLIC</h3>
+        <p>
+          A shared world where every journey
+          has a place.
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<section id="citizens" class="citizens">
+
+  <div class="container">
+
+    <div class="section-title">
+      <span>CITIZENS OF STILL ME</span>
+      <h2>The journey begins.</h2>
+    </div>
+
+    <div class="character-grid">
+
+      <div class="character">
+        <div class="age">AGE 2</div>
+        <h3>The Child</h3>
+        <p>
+          Beginning.<br>
+          Pure.<br>
+          Before everything.
+        </p>
+      </div>
+
+      <div class="character">
+        <div class="age">AGE 10</div>
+        <h3>WHY</h3>
+        <p>
+          Awakening.<br>
+          Becoming.<br>
+          The world is a question.
+        </p>
+      </div>
+
+      <div class="character">
+        <div class="age">AGE 13</div>
+        <h3>THRESHOLD</h3>
+        <p>
+          Encounter.<br>
+          Emerging.<br>
+          I have not met myself yet.
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<section id="flag" class="flag-section">
+
+  <div class="container">
+
+    <div class="section-title">
+      <span>THE FLAG</span>
+      <h2>Our symbol of becoming.</h2>
+    </div>
+
+    <div class="flag">
+
+      <div class="flag-light">
+        ∞
+      </div>
+
+      <div class="flag-dark">
+        ✦
+      </div>
+
+    </div>
+
+    <p class="flag-text">
+      Off-white represents truth and purity.
+      Deep navy represents depth, memory and the unknown.
+      The infinity represents the journey.
+      The star represents the direction.
+    </p>
+
+  </div>
+
+</section>
+
+<footer>
+
+  <div class="footer-infinity">∞</div>
+
+  <h2>STILL ME REPUBLIC</h2>
+
+  <p>
+    WE REMEMBER. WE BECOME. WE CREATE.
+  </p>
+
+</footer>
+<div style="text-align:center; padding:30px 20px;">
+  <a href="flag.html" style="display:inline-block; padding:14px 28px; border:1px solid var(--gold); color:var(--gold); text-decoration:none; letter-spacing:2px;">
+    VIEW THE FLAG
+  </a>
+</div>
+</body>
+</html>
